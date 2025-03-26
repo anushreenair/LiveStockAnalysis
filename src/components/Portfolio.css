@@ -1,0 +1,732 @@
+.portfolio-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: "Times New Roman", Times, serif;
+  color: #333;
+  animation: fadeIn 0.3s ease-in forwards;
+  opacity: 0;
+}
+
+.portfolio-header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-header h1 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.stock-card {
+  transition: all 0.3s ease;
+  border-radius: 12px !important;
+  overflow: hidden;
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.stock-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.stock-details {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: #555;
+}
+
+.stock-details > * {
+  margin-bottom: 12px;
+}
+
+.prediction-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.prediction-card {
+  height: 100%;
+  transition: all 0.3s ease;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.prediction-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.prediction-detail-box {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+
+.confidence-bar-container {
+  margin: 24px 0;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+
+/* Dark theme enhancements */
+[data-theme='dark'] .portfolio-container {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .portfolio-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .stock-card {
+  background: linear-gradient(145deg, #2d2d2d 0%, #1a1a1a 100%);
+}
+
+[data-theme='dark'] .stock-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .stock-details {
+  border-top-color: rgba(255, 255, 255, 0.1);
+  color: #bbb;
+}
+
+[data-theme='dark'] .MuiTypography-root {
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .MuiTypography-colorTextSecondary {
+  color: #999 !important;
+}
+
+[data-theme='dark'] .MuiButton-contained {
+  background-color: #3f51b5;
+  color: white;
+}
+
+[data-theme='dark'] .MuiButton-outlined {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .MuiDialog-paper {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .MuiInputLabel-root {
+  color: #999;
+}
+
+[data-theme='dark'] .MuiOutlinedInput-root {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme='dark'] .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme='dark'] .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #3f51b5;
+}
+
+[data-theme='dark'] .loading-spinner {
+  border-color: rgba(255, 255, 255, 0.1);
+  border-top-color: #3f51b5;
+}
+
+/* Success and error states for both themes */
+.success-text {
+  color: #4caf50 !important;
+}
+
+.error-text {
+  color: #f44336 !important;
+}
+
+[data-theme='dark'] .success-text {
+  color: #81c784 !important;
+}
+
+[data-theme='dark'] .error-text {
+  color: #e57373 !important;
+}
+
+/* Alert styles for both themes */
+[data-theme='dark'] .MuiAlert-standardSuccess {
+  background-color: rgba(76, 175, 80, 0.15);
+  color: #81c784;
+}
+
+[data-theme='dark'] .MuiAlert-standardError {
+  background-color: rgba(244, 67, 54, 0.15);
+  color: #e57373;
+}
+
+/* Dialog transition */
+.MuiDialog-paper {
+  transition: all 0.3s ease;
+}
+
+/* Add Investment button enhancement */
+.add-investment-button {
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .add-investment-button:hover {
+  background-color: #4558c9;
+}
+
+/* Stock value indicators */
+.value-increase {
+  color: #4caf50 !important;
+}
+
+.value-decrease {
+  color: #f44336 !important;
+}
+
+[data-theme='dark'] .value-increase {
+  color: #81c784 !important;
+}
+
+[data-theme='dark'] .value-decrease {
+  color: #e57373 !important;
+}
+
+/* Grid spacing improvements */
+.portfolio-grid {
+  margin: 0 -12px;
+}
+
+.portfolio-grid-item {
+  padding: 12px;
+}
+
+/* Loading spinner enhancements */
+.loading-spinner {
+  margin: 60px auto;
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in-out forwards;
+  animation-delay: 0.5s; /* Only show spinner if loading takes longer than 500ms */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.confidence-bar {
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.confidence-bar-fill {
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+[data-theme='dark'] .confidence-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Update Typography components */
+.MuiTypography-root {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+/* Update Dialog components */
+.MuiDialogTitle-root,
+.MuiDialogContent-root,
+.MuiInputLabel-root,
+.MuiInput-root,
+.MuiButton-root {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+/* Update TextField components */
+.MuiOutlinedInput-input {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+.MuiTab-root {
+  text-transform: none;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.sort-button {
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .MuiTab-root {
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .MuiTabs-indicator {
+  background-color: #3f51b5;
+}
+
+.portfolio-summary {
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme='dark'] .portfolio-summary {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.stock-info {
+  transition: all 0.3s ease;
+}
+
+.stock-info:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] .stock-info {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .stock-info:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Investment Preview styles */
+.investment-preview {
+  transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme='dark'] .investment-preview {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Transaction type indicators */
+.transaction-buy {
+  color: #4caf50 !important;
+}
+
+.transaction-sell {
+  color: #f44336 !important;
+}
+
+[data-theme='dark'] .transaction-buy {
+  color: #81c784 !important;
+}
+
+[data-theme='dark'] .transaction-sell {
+  color: #e57373 !important;
+}
+
+/* Delete animation */
+.stock-card.deleting {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Delete confirmation dialog styles */
+[data-theme='dark'] .MuiDialog-paper {
+  background-color: #2d2d2d;
+}
+
+[data-theme='dark'] .MuiDialogTitle-root,
+[data-theme='dark'] .MuiDialogContent-root {
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .MuiButton-contained.MuiButton-colorError {
+  background-color: #f44336;
+}
+
+[data-theme='dark'] .MuiButton-contained.MuiButton-colorError:hover {
+  background-color: #d32f2f;
+}
+
+/* Add loading state styles */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+[data-theme='dark'] .loading-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Add animation for new investments */
+.stock-card {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-title {
+  margin-bottom: 24px;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.investment-card {
+  height: 100%;
+  transition: all 0.3s ease;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.investment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Dark theme support */
+[data-theme='dark'] .investment-card {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .MuiTypography-colorTextSecondary {
+  color: #999 !important;
+}
+
+.stocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optimize loading spinner */
+.MuiCircularProgress-root {
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.stock-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.transaction-type {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.transaction-type.buy {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.transaction-type.sell {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+[data-theme='dark'] .transaction-type.buy {
+  background-color: rgba(46, 125, 50, 0.2);
+  color: #81c784;
+}
+
+[data-theme='dark'] .transaction-type.sell {
+  background-color: rgba(198, 40, 40, 0.2);
+  color: #e57373;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.delete-button {
+  width: 100%;
+  margin-top: 16px !important;
+}
+
+.no-stocks-message {
+  text-align: center;
+  color: #666;
+  margin-top: 24px;
+}
+
+.error-message {
+  color: #d32f2f;
+  text-align: center;
+  margin: 16px 0;
+}
+
+/* Dark theme support */
+[data-theme='dark'] .no-stocks-message {
+  color: #aaa;
+}
+
+.MuiCard-root {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.MuiCardContent-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .portfolio-container {
+    padding: 16px;
+  }
+}
+
+.stock-type {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.stock-type.us {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.stock-type.indian {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+[data-theme='dark'] .stock-type.us {
+  background-color: rgba(25, 118, 210, 0.2);
+  color: #64b5f6;
+}
+
+[data-theme='dark'] .stock-type.indian {
+  background-color: rgba(245, 124, 0, 0.2);
+  color: #ffb74d;
+}
+
+.stock-symbol {
+  display: flex;
+  align-items: center;
+  font-weight: 600 !important;
+}
+
+.stock-info-container {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+
+.stock-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.stock-detail-row:last-child {
+  border-bottom: none;
+}
+
+.stock-detail-row .value {
+  font-weight: 600;
+}
+
+.stock-detail-row.buy-price .value {
+  color: #2e7d32;
+}
+
+.stock-detail-row.sell-price .value {
+  color: #d32f2f;
+}
+
+.total-value {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.total-value.buy .value {
+  color: #2e7d32;
+  background: rgba(46, 125, 50, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.total-value.sell .value {
+  color: #d32f2f;
+  background: rgba(211, 47, 47, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .stock-detail-row.buy-price .value {
+  color: #81c784;
+}
+
+[data-theme='dark'] .stock-detail-row.sell-price .value {
+  color: #e57373;
+}
+
+[data-theme='dark'] .total-value.buy .value {
+  background: rgba(46, 125, 50, 0.2);
+  color: #81c784;
+}
+
+[data-theme='dark'] .total-value.sell .value {
+  background: rgba(211, 47, 47, 0.2);
+  color: #e57373;
+}
+
+.stock-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.stock-actions button {
+  background: linear-gradient(45deg, #f44336, #d32f2f);
+  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.2);
+}
+
+.stock-actions button:hover {
+  background: linear-gradient(45deg, #d32f2f, #b71c1c);
+}
+
+/* Dark theme support */
+[data-theme='dark'] .stock-actions button {
+  background: linear-gradient(45deg, #d32f2f, #b71c1c);
+  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+}
+
+[data-theme='dark'] .stock-actions button:hover {
+  background: linear-gradient(45deg, #b71c1c, #961717);
+}
+
+.MuiAlert-root {
+  animation: slideIn 0.3s ease-out;
+  margin-bottom: 16px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-theme='dark'] .portfolio-container h3 {
+  color: #64b5f6;
+}
+
+.stock-card .MuiChip-root {
+  height: 24px;
+  font-size: 0.75rem;
+}
+
+.stock-card .MuiChip-root.MuiChip-colorSuccess {
+  background-color: rgba(46, 125, 50, 0.1);
+  color: #2e7d32;
+}
+
+.stock-card .MuiChip-root.MuiChip-colorError {
+  background-color: rgba(211, 47, 47, 0.1);
+  color: #d32f2f;
+}
+
+.transaction-type-select {
+  margin-bottom: 16px;
+}
+
+.transaction-type-select .MuiOutlinedInput-root {
+  border-radius: 8px;
+}
+
+.transaction-type-select .MuiMenuItem-root {
+  padding: 12px 16px;
+} 
